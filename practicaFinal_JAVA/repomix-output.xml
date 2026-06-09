@@ -1,0 +1,505 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+ArchivoCalificaciones.java
+Estudiante.java
+Main.java
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="ArchivoCalificaciones.java">
+import java.io.*;
+import java.util.ArrayList;
+
+public class ArchivoCalificaciones {
+
+    private static final String DIRECTORIO = "calificaciones";
+
+    public ArchivoCalificaciones() {
+        new File(DIRECTORIO).mkdirs();
+    }
+
+    private String obtenerRuta(String mes, String curso) {
+        return DIRECTORIO + File.separator
+                + "cal_" + mes.toUpperCase() + "_" + curso.toUpperCase() + ".txt";
+    }
+
+    public void guardar(Estudiante est) {
+        String ruta = obtenerRuta(est.getMes(), est.getCurso());
+        try (FileWriter fw = new FileWriter(ruta, true);
+             PrintWriter pw = new PrintWriter(fw)) {
+
+            pw.println(
+                est.getNombre()    + "," +
+                est.getApellido()  + "," +
+                est.getCurso()     + "," +
+                est.getMes()       + "," +
+                (int) est.getMatematica() + "," +
+                (int) est.getLengua()     + "," +
+                (int) est.getNaturales()  + "," +
+                (int) est.getSociales()
+            );
+
+        } catch (IOException e) {
+            System.out.println("Error al guardar: " + e.getMessage());
+        }
+    }
+
+    public ArrayList<Estudiante> leerPorMesCurso(String mes, String curso) {
+        ArrayList<Estudiante> lista = new ArrayList<>();
+        File archivo = new File(obtenerRuta(mes, curso));
+
+        if (!archivo.exists()) return lista;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                linea = linea.trim();
+                if (linea.isEmpty()) continue;
+                Estudiante est = parsearLinea(linea);
+                if (est != null) lista.add(est);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer archivo: " + e.getMessage());
+        }
+
+        return lista;
+    }
+
+    public ArrayList<Estudiante> leer() {
+        ArrayList<Estudiante> todos = new ArrayList<>();
+        File dir = new File(DIRECTORIO);
+        if (!dir.exists()) return todos;
+
+        File[] archivos = dir.listFiles(
+            (d, name) -> name.startsWith("cal_") && name.endsWith(".txt")
+        );
+        if (archivos == null) return todos;
+
+        for (File archivo : archivos) {
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    linea = linea.trim();
+                    if (linea.isEmpty()) continue;
+                    Estudiante est = parsearLinea(linea);
+                    if (est != null) todos.add(est);
+                }
+            } catch (IOException e) {
+                System.out.println("Error al leer " + archivo.getName() + ": " + e.getMessage());
+            }
+        }
+
+        return todos;
+    }
+
+    private Estudiante parsearLinea(String linea) {
+        String[] datos = linea.split(",");
+        if (datos.length < 8) return null;
+        try {
+            return new Estudiante(
+                datos[0], datos[1], datos[2], datos[3],
+                Double.parseDouble(datos[4]),
+                Double.parseDouble(datos[5]),
+                Double.parseDouble(datos[6]),
+                Double.parseDouble(datos[7])
+            );
+        } catch (NumberFormatException e) {
+            System.out.println("Linea con formato incorrecto omitida: " + linea);
+            return null;
+        }
+    }
+}
+</file>
+
+<file path="Estudiante.java">
+public class Estudiante {
+
+    private String nombre;
+    private String apellido;
+    private String curso;
+    private String mes;
+
+    private double matematica;
+    private double lengua;
+    private double naturales;
+    private double sociales;
+
+    public Estudiante(String nombre,
+                      String apellido,
+                      String curso,
+                      String mes,
+                      double matematica,
+                      double lengua,
+                      double naturales,
+                      double sociales) {
+
+        this.nombre    = nombre;
+        this.apellido  = apellido;
+        this.curso     = curso;
+        this.mes       = mes;
+        this.matematica = matematica;
+        this.lengua    = lengua;
+        this.naturales = naturales;
+        this.sociales  = sociales;
+    }
+
+    public double calcularPromedio() {
+        int cantidadMaterias = 4;
+        if (cantidadMaterias == 0) return 0; // proteccion division por cero
+        return (matematica + lengua + naturales + sociales) / cantidadMaterias;
+    }
+
+    public String getLiteral() {
+        double promedio = calcularPromedio();
+        if (promedio >= 90) return "A";
+        if (promedio >= 80) return "B";
+        if (promedio >= 70) return "C";
+        return "D";
+    }
+
+    public String getNombre()     { return nombre; }
+    public String getApellido()   { return apellido; }
+    public String getCurso()      { return curso; }
+    public String getMes()        { return mes; }
+    public double getMatematica() { return matematica; }
+    public double getLengua()     { return lengua; }
+    public double getNaturales()  { return naturales; }
+    public double getSociales()   { return sociales; }
+}
+</file>
+
+<file path="Main.java">
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    private static final Scanner sc = new Scanner(System.in);
+    private static final ArchivoCalificaciones archivo = new ArchivoCalificaciones();
+
+    private static final String[] MESES = {
+        "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO",
+        "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"
+    };
+
+    public static void main(String[] args) {
+        boolean ejecutando = true;
+
+        while (ejecutando) {
+            mostrarMenu();
+            String opcion = leerLinea();
+
+            if (opcion.isEmpty()) {
+                continue;
+            }
+
+            // ESC = ASCII 27
+            if (opcion.charAt(0) == 27 || opcion.equals("3")) {
+                ejecutando = false;
+            } else {
+                switch (opcion) {
+                    case "1":
+                        registrarCalificaciones();
+                        break;
+
+                    case "2":
+                        generarReporte();
+                        break;
+
+                    default:
+                        System.out.println("\nOpcion no valida. Intente de nuevo.");
+                        break;
+                }
+            }
+        }
+
+        System.out.println("\nGracias por usar el Sistema de Calificaciones.");
+        System.out.println("Hasta pronto.");
+    }
+
+    // -------------------------------------------------------------------------
+    // MENU
+    // -------------------------------------------------------------------------
+
+    private static void mostrarMenu() {
+        System.out.println();
+        System.out.println("====================================");
+        System.out.println("      COLEGIO DIOS ES BUENO         ");
+        System.out.println("    SISTEMA DE CALIFICACIONES       ");
+        System.out.println("====================================");
+        System.out.println("  1- Registro de calificaciones     ");
+        System.out.println("  2- Reporte calificaciones por mes ");
+        System.out.println("  3- Presione <ESC> para salir      ");
+        System.out.println("====================================");
+        System.out.print("Elija la opcion deseada y pulse <ENTER>: [ _ ]\b\b\b\b");
+    }
+
+    // -------------------------------------------------------------------------
+    // OPCION 1 - REGISTRO
+    // -------------------------------------------------------------------------
+
+    private static void registrarCalificaciones() {
+        System.out.println("\n--- REGISTRO DE CALIFICACIONES ---");
+
+        String mes = seleccionarMes();
+        if (mes == null) {
+            return;
+        }
+
+        System.out.print("Ingrese el curso (ej. 1A, 2B): ");
+        String curso = leerLinea().trim().toUpperCase();
+
+        if (curso.isEmpty()) {
+            System.out.println("Curso no valido. Regresando al menu.");
+            return;
+        }
+
+        boolean continuar = true;
+
+        while (continuar) {
+            System.out.println("\n-- Datos del estudiante --");
+
+            System.out.print("Nombre    : ");
+            String nombre = leerLinea().trim();
+
+            System.out.print("Apellido  : ");
+            String apellido = leerLinea().trim();
+
+            if (nombre.isEmpty() || apellido.isEmpty()) {
+                System.out.println("Nombre y apellido son obligatorios.");
+                continue;
+            }
+
+            double matematica = leerNota("Matematica (0-100): ");
+            double lengua     = leerNota("Lengua     (0-100): ");
+            double naturales  = leerNota("Naturales  (0-100): ");
+            double sociales   = leerNota("Sociales   (0-100): ");
+
+            Estudiante est = new Estudiante(
+                nombre,
+                apellido,
+                curso,
+                mes,
+                matematica,
+                lengua,
+                naturales,
+                sociales
+            );
+
+            archivo.guardar(est);
+
+            System.out.printf(
+                "%nEstudiante guardado. Promedio: %.1f  Literal: %s%n",
+                est.calcularPromedio(),
+                est.getLiteral()
+            );
+
+            System.out.print("Agregar otro estudiante? (S/N): ");
+            String resp = leerLinea().trim().toUpperCase();
+
+            continuar = resp.equals("S");
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // OPCION 2 - REPORTE
+    // -------------------------------------------------------------------------
+
+    private static void generarReporte() {
+        System.out.println("\n--- REPORTE DE CALIFICACIONES ---");
+
+        String mes = seleccionarMes();
+        if (mes == null) {
+            return;
+        }
+
+        System.out.print("Ingrese el curso (ej. 1A, 2B): ");
+        String curso = leerLinea().trim().toUpperCase();
+
+        if (curso.isEmpty()) {
+            System.out.println("Curso no valido.");
+            return;
+        }
+
+        ArrayList<Estudiante> estudiantes =
+            archivo.leerPorMesCurso(mes, curso);
+
+        if (estudiantes.isEmpty()) {
+            System.out.println(
+                "No se encontraron calificaciones para "
+                + mes
+                + " - Curso "
+                + curso
+            );
+            return;
+        }
+
+        estudiantes.sort(
+            (a, b) -> a.getApellido().compareToIgnoreCase(b.getApellido())
+        );
+
+        imprimirReporte(mes, curso, estudiantes);
+    }
+
+    private static void imprimirReporte(
+        String mes,
+        String curso,
+        ArrayList<Estudiante> lista
+    ) {
+        String sep = repetir("=", 78);
+        String sepFin = repetir("-", 78);
+
+        System.out.println();
+        System.out.println("Colegio Dios es Bueno.");
+        System.out.println("Reporte de Calificaciones de " + mes);
+        System.out.println("Curso: " + curso);
+
+        System.out.println(sep);
+
+        System.out.printf(
+            "%-15s %-15s %10s %8s %10s %9s %9s %7s%n",
+            "Nombre",
+            "Apellido",
+            "Matematica",
+            "Lengua",
+            "Naturales",
+            "Sociales",
+            "Promedio",
+            "Literal"
+        );
+
+        System.out.println(sep);
+
+        for (Estudiante est : lista) {
+            System.out.printf(
+                "%-15s %-15s %10.1f %8.1f %10.1f %9.1f %9.1f %7s%n",
+                est.getNombre(),
+                est.getApellido(),
+                est.getMatematica(),
+                est.getLengua(),
+                est.getNaturales(),
+                est.getSociales(),
+                est.calcularPromedio(),
+                est.getLiteral()
+            );
+        }
+
+        System.out.println(sepFin);
+        System.out.println("Total de estudiantes: " + lista.size());
+    }
+
+    // -------------------------------------------------------------------------
+    // UTILIDADES
+    // -------------------------------------------------------------------------
+
+    private static String seleccionarMes() {
+        System.out.println("\nSeleccione el mes:");
+
+        for (int i = 0; i < MESES.length; i++) {
+            System.out.printf("  %2d- %s%n", i + 1, MESES[i]);
+        }
+
+        System.out.print("Opcion (1-12): ");
+
+        while (true) {
+            String input = leerLinea().trim();
+
+            try {
+                int num = Integer.parseInt(input);
+
+                if (num >= 1 && num <= 12) {
+                    return MESES[num - 1];
+                }
+
+                System.out.print("Ingrese un numero entre 1 y 12: ");
+
+            } catch (NumberFormatException e) {
+                System.out.print(
+                    "Opcion no valida. Ingrese un numero (1-12): "
+                );
+            }
+        }
+    }
+
+    private static double leerNota(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+
+            String input = leerLinea().trim();
+
+            try {
+                double valor = Double.parseDouble(input);
+
+                if (valor >= 0 && valor <= 100) {
+                    return valor;
+                }
+
+                System.out.println("La nota debe estar entre 0 y 100.");
+
+            } catch (NumberFormatException e) {
+                System.out.println(
+                    "Valor no valido. Ingrese un numero."
+                );
+            }
+        }
+    }
+
+    private static String leerLinea() {
+        return sc.nextLine();
+    }
+
+    private static String repetir(String texto, int cantidad) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < cantidad; i++) {
+            sb.append(texto);
+        }
+
+        return sb.toString();
+    }
+}
+</file>
+
+</files>
