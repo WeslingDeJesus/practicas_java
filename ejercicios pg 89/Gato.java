@@ -5,8 +5,11 @@ public class Gato extends Mamifero {
     private double alturaSalto;
 
     // Constructor
-    public Gato(String nombre, String raza, String fechaNacimiento,
-                float peso, double alturaSalto) {
+    public Gato(String nombre, 
+                String raza, 
+                String fechaNacimiento,
+                float peso, 
+                double alturaSalto) {
 
         super(nombre, raza, fechaNacimiento, peso);
         this.alturaSalto = alturaSalto;
