@@ -184,13 +184,23 @@ dialog { animation: zoomIn .4s ease both; }
 /* Parallax ligero en hero (usando transform en scroll — via JS) */
 .hero-parallax { will-change: transform; }
 
-/* Keyframe para el slider CSS */
+/* Keyframe para el slider CSS — 5 slides (4 reales + duplicado del 1.º)
+   translateX es relativo al ancho del propio track (500%).
+   -20% de 500% = 100% del contenedor = 1 slide de ancho.
+   El salto final de -80% → 0% es invisible porque slide 5 == slide 1. */
 @keyframes sliderAuto {
-  0%   { transform: translateX(0%);     }
-  25%  { transform: translateX(-100%);  }
-  50%  { transform: translateX(-200%);  }
-  75%  { transform: translateX(-300%);  }
-  100% { transform: translateX(0%);     }
+  0%    { transform: translateX(0%);   }
+  15%   { transform: translateX(0%);   }
+  20%   { transform: translateX(-20%); }
+  35%   { transform: translateX(-20%); }
+  40%   { transform: translateX(-40%); }
+  55%   { transform: translateX(-40%); }
+  60%   { transform: translateX(-60%); }
+  75%   { transform: translateX(-60%); }
+  80%   { transform: translateX(-80%); }
+  /* steps(1,end) hace el salto de vuelta en el último instante — imperceptible */
+  99%   { transform: translateX(-80%); animation-timing-function: steps(1, end); }
+  100%  { transform: translateX(0%);   }
 }
 
 /* CSS Slider (sin JavaScript) */
@@ -201,15 +211,15 @@ dialog { animation: zoomIn .4s ease both; }
   box-shadow: var(--sombra-lg);
 }
 .slider-track {
-  display:    flex;
-  width:      400%;
-  animation:  sliderAuto 12s ease-in-out infinite;
+  display:   flex;
+  width:     500%;
+  animation: sliderAuto 20s linear infinite;
 }
 .slider-track:hover { animation-play-state: paused; }
 .slider-slide {
-  flex:       0 0 25%;
-  height:     350px;
-  display:    flex;
+  flex:            0 0 20%;
+  height:          350px;
+  display:         flex;
   align-items:     center;
   justify-content: center;
 }
@@ -217,6 +227,7 @@ dialog { animation: zoomIn .4s ease both; }
 .slider-slide:nth-child(2) { background: linear-gradient(135deg,#7C3AED,#DB2777); }
 .slider-slide:nth-child(3) { background: linear-gradient(135deg,#D97706,#DC2626); }
 .slider-slide:nth-child(4) { background: linear-gradient(135deg,#059669,#0369A1); }
+.slider-slide:nth-child(5) { background: linear-gradient(135deg,#1E3A8A,#2563EB); }
 .slider-contenido {
   text-align: center;
   color:      #fff;
