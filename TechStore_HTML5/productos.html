@@ -1,30 +1,402 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Productos</title></head><body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo de productos TechStore Online">
+  <title>Productos — TechStore Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
 
-<header>
-<nav>
-<ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="productos.html">Productos</a></li>
-<li><a href="producto.html">Detalle</a></li>
-<li><a href="carrito.html">Carrito</a></li>
-<li><a href="contacto.html">Contacto</a></li>
-<li><a href="acerca.html">Acerca de</a></li>
-</ul>
-</nav>
+<div class="banner-promo">
+  <i class="fas fa-truck"></i> Envío gratis en compras +$99 &nbsp;|&nbsp;
+  <i class="fas fa-shield-alt"></i> Garantía de 1 año en todos los productos
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <i class="fas fa-bolt"></i><span>TechStore</span>
+      </a>
+      <form class="header-search" role="search">
+        <input type="search" placeholder="Buscar productos…" aria-label="Buscar">
+        <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      </form>
+      <input type="checkbox" id="menu-check" class="menu-check" aria-hidden="true">
+      <label for="menu-check" class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="nav-principal" aria-label="Menú principal">
+        <ul class="nav-lista">
+          <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="productos.html" class="activo"><i class="fas fa-th-large"></i> Productos</a></li>
+          <li><a href="producto.html"><i class="fas fa-laptop"></i> Detalle</a></li>
+          <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+          <li><a href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+        </ul>
+      </nav>
+      <div class="header-iconos">
+        <button class="icono-btn" aria-label="Mi cuenta"><i class="fas fa-user"></i></button>
+        <a href="carrito.html" class="icono-btn" aria-label="Carrito">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="carrito-badge">3</span>
+        </a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Modo oscuro"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </div>
 </header>
-<footer><address>TechStore Online</address><small>2026</small></footer>
+
 <main>
-<aside>
-<form>
-<fieldset><legend>Filtros</legend>
-<label>Precio</label><input type="number">
-<label>Marca</label>
-<select><option>HP</option><option>Dell</option></select>
-<label>Categoría</label>
-<input list="cats"><datalist id="cats"><option>Laptops</option><option>Gaming</option></datalist>
-<label>Color</label><input type="text">
-</fieldset>
-</form>
-</aside>
-<section><article><h2>Catálogo</h2><p>Listado de productos.</p></article></section>
-</main></body></html>
+  <div class="container">
+    <div class="layout-productos">
+
+      <!-- Aside / Filtros (position: sticky) -->
+      <aside class="sidebar">
+        <div class="filtros-card">
+          <h3><i class="fas fa-filter"></i> Filtros</h3>
+
+          <form id="form-filtros">
+            <fieldset style="border:none;padding:0">
+              <div class="filtro-grupo">
+                <label for="f-categoria"><i class="fas fa-th-large"></i> Categoría</label>
+                <select id="f-categoria">
+                  <option value="">Todas las categorías</option>
+                  <option>Laptops</option>
+                  <option>Smartphones</option>
+                  <option>Tablets</option>
+                  <option>Monitores</option>
+                  <option>Periféricos</option>
+                  <option>Gaming</option>
+                  <option>Audio</option>
+                </select>
+              </div>
+
+              <div class="filtro-grupo">
+                <label for="f-precio-min"><i class="fas fa-dollar-sign"></i> Precio mínimo</label>
+                <input type="number" id="f-precio-min" placeholder="$0" min="0">
+              </div>
+
+              <div class="filtro-grupo">
+                <label for="f-precio-max"><i class="fas fa-dollar-sign"></i> Precio máximo</label>
+                <input type="number" id="f-precio-max" placeholder="$9999" min="0">
+              </div>
+
+              <div class="filtro-grupo">
+                <label for="f-marca"><i class="fas fa-tag"></i> Marca</label>
+                <input id="f-marca" list="marcas-list" placeholder="Escribe una marca">
+                <datalist id="marcas-list">
+                  <option>HP</option>
+                  <option>Dell</option>
+                  <option>Apple</option>
+                  <option>Samsung</option>
+                  <option>Lenovo</option>
+                  <option>Asus</option>
+                  <option>Sony</option>
+                </datalist>
+              </div>
+
+              <div class="filtro-grupo">
+                <label for="f-color"><i class="fas fa-palette"></i> Color</label>
+                <input type="text" id="f-color" placeholder="Ej: negro, plata…">
+              </div>
+
+              <div class="filtro-grupo">
+                <label><i class="fas fa-star"></i> Valoración mínima</label>
+                <select>
+                  <option>Cualquiera</option>
+                  <option>⭐⭐⭐⭐⭐ 5 estrellas</option>
+                  <option>⭐⭐⭐⭐ 4+ estrellas</option>
+                  <option>⭐⭐⭐ 3+ estrellas</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primario" style="width:100%">
+                <i class="fas fa-search"></i> Aplicar filtros
+              </button>
+              <button type="reset" class="btn btn-outline mt-1" style="width:100%">
+                <i class="fas fa-times"></i> Limpiar
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </aside>
+
+      <!-- Catálogo — CSS Grid -->
+      <section class="catalogo">
+        <div class="catalogo-header">
+          <h2 class="catalogo-titulo">Catálogo</h2>
+          <span class="catalogo-conteo">Mostrando <strong>8</strong> de 48 productos</span>
+          <select style="padding:.4rem .75rem;border:2px solid var(--color-gris-claro);border-radius:var(--radio-sm);font-size:.88rem;background:var(--color-fondo);color:var(--color-texto);outline:none">
+            <option>Más vendidos</option>
+            <option>Precio: menor a mayor</option>
+            <option>Precio: mayor a menor</option>
+            <option>Más nuevo</option>
+          </select>
+        </div>
+
+        <div class="productos-grid">
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <span class="etiqueta-oferta">30% OFF</span>
+              <span class="etiqueta-nuevo">Nuevo</span>
+              <img src="img/p1.jpg" alt="Laptop Gamer Pro X1" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-laptop"></i> Laptops</span>
+              <h3 class="tarjeta-titulo">Laptop Gamer Pro X1</h3>
+              <p class="tarjeta-desc">RTX 4070, 16GB RAM, SSD 1TB, 144Hz</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <small>(128)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$999</span>
+                <span class="precio-anterior">$1,399</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <span class="etiqueta-oferta">20% OFF</span>
+              <img src="img/p2.jpg" alt="Smartphone Galaxy Ultra" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-mobile-alt"></i> Smartphones</span>
+              <h3 class="tarjeta-titulo">Smartphone Galaxy Ultra 5G</h3>
+              <p class="tarjeta-desc">6.8", 200MP, 5000mAh, 12GB RAM</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <small>(256)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$599</span>
+                <span class="precio-anterior">$749</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <span class="etiqueta-oferta">25% OFF</span>
+              <img src="img/p3.jpg" alt="Auriculares Noise Pro" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-headphones"></i> Audio</span>
+              <h3 class="tarjeta-titulo">Auriculares Noise Pro 360</h3>
+              <p class="tarjeta-desc">Cancelación activa, 40h batería, Bluetooth 5.3</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="far fa-star"></i>
+                <small>(89)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$199</span>
+                <span class="precio-anterior">$265</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <span class="etiqueta-nuevo">Nuevo</span>
+              <img src="img/p4.jpg" alt="Monitor 4K" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-desktop"></i> Monitores</span>
+              <h3 class="tarjeta-titulo">Monitor 4K UHD 27" IPS</h3>
+              <p class="tarjeta-desc">165Hz, HDR600, DisplayPort 1.4, USB-C</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <small>(175)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$449</span>
+                <span class="precio-anterior">$549</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <span class="etiqueta-oferta">18% OFF</span>
+              <img src="img/p5.jpg" alt="Teclado Mecánico" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-keyboard"></i> Periféricos</span>
+              <h3 class="tarjeta-titulo">Teclado Mecánico RGB Pro</h3>
+              <p class="tarjeta-desc">Switches Cherry MX Red, TKL, retroiluminado</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <small>(312)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$129</span>
+                <span class="precio-anterior">$159</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <img src="img/p6.jpg" alt="Ratón Gaming" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-mouse"></i> Periféricos</span>
+              <h3 class="tarjeta-titulo">Ratón Gaming Precision X</h3>
+              <p class="tarjeta-desc">25.600 DPI, 7 botones, RGB, inalámbrico</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="far fa-star"></i>
+                <small>(204)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$79</span>
+                <span class="precio-anterior">$99</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <span class="etiqueta-nuevo">Nuevo</span>
+              <img src="img/p7.jpg" alt="Tablet Pro" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-tablet-alt"></i> Tablets</span>
+              <h3 class="tarjeta-titulo">Tablet Pro 12.9" M4</h3>
+              <p class="tarjeta-desc">Chip M4, 256GB, Liquid Retina XDR</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <small>(89)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$1,099</span>
+                <span class="precio-anterior">$1,299</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+          <article class="tarjeta-producto">
+            <div class="tarjeta-imagen">
+              <span class="etiqueta-oferta">10% OFF</span>
+              <img src="img/p8.jpg" alt="Webcam 4K" onerror="this.style.display='none'">
+            </div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-categoria"><i class="fas fa-video"></i> Cámaras</span>
+              <h3 class="tarjeta-titulo">Webcam 4K Pro Stream</h3>
+              <p class="tarjeta-desc">4K/60fps, autofocus IA, micrófono estéreo</p>
+              <div class="tarjeta-estrellas">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <small>(143)</small>
+              </div>
+              <div class="tarjeta-precio">
+                <span class="precio-actual">$179</span>
+                <span class="precio-anterior">$199</span>
+              </div>
+            </div>
+            <footer class="tarjeta-footer">
+              <button class="btn btn-primario"><i class="fas fa-cart-plus"></i> Agregar</button>
+              <a href="producto.html" class="btn btn-outline"><i class="fas fa-eye"></i></a>
+            </footer>
+          </article>
+
+        </div><!-- /productos-grid -->
+      </section>
+    </div><!-- /layout-productos -->
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fas fa-bolt"></i><span>TechStore</span></div>
+        <p>Tu destino para tecnología de calidad.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <div class="footer-contacto">
+          <div class="footer-contacto-item"><i class="fas fa-map-marker-alt"></i><span>Santo Domingo, RD</span></div>
+          <div class="footer-contacto-item"><i class="fas fa-envelope"></i><span>info@techstore.com.do</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <address>TechStore Online</address>
+      <small>© 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const icon = document.querySelector('#darkToggle i');
+    icon.className = document.body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,33 +1,285 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Detalle</title></head><body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Laptop Gamer Pro X1 — Detalle de producto TechStore">
+  <title>Laptop Gamer Pro X1 — TechStore Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
 
-<header>
-<nav>
-<ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="productos.html">Productos</a></li>
-<li><a href="producto.html">Detalle</a></li>
-<li><a href="carrito.html">Carrito</a></li>
-<li><a href="contacto.html">Contacto</a></li>
-<li><a href="acerca.html">Acerca de</a></li>
-</ul>
-</nav>
+<div class="banner-promo">
+  <i class="fas fa-shield-alt"></i> Garantía de 1 año &nbsp;|&nbsp;
+  <i class="fas fa-undo"></i> Devolución gratuita en 30 días
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><i class="fas fa-bolt"></i><span>TechStore</span></a>
+      <form class="header-search" role="search">
+        <input type="search" placeholder="Buscar productos…" aria-label="Buscar">
+        <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      </form>
+      <input type="checkbox" id="menu-check" class="menu-check" aria-hidden="true">
+      <label for="menu-check" class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="nav-principal" aria-label="Menú principal">
+        <ul class="nav-lista">
+          <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="productos.html"><i class="fas fa-th-large"></i> Productos</a></li>
+          <li><a href="producto.html" class="activo"><i class="fas fa-laptop"></i> Detalle</a></li>
+          <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+          <li><a href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+        </ul>
+      </nav>
+      <div class="header-iconos">
+        <button class="icono-btn" aria-label="Cuenta"><i class="fas fa-user"></i></button>
+        <a href="carrito.html" class="icono-btn" aria-label="Carrito">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="carrito-badge">3</span>
+        </a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Modo oscuro"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </div>
 </header>
-<footer><address>TechStore Online</address><small>2026</small></footer>
+
 <main>
-<h1>Laptop Gamer Pro</h1>
-<picture>
-<source media="(max-width:600px)" srcset="img/mobile.jpg">
-<source media="(min-width:601px)" srcset="img/desktop.jpg">
-<img src="img/desktop.jpg" alt="Laptop">
-</picture>
+  <div class="container">
 
-<video controls><source src="video/demo.mp4" type="video/mp4"></video>
-<audio controls><source src="audio/promo.mp3" type="audio/mpeg"></audio>
+    <!-- Breadcrumb -->
+    <nav aria-label="Miga de pan" style="padding:1.5rem 0 .5rem;font-size:.88rem;color:var(--color-gris)">
+      <a href="index.html" style="color:var(--color-secundario)">Inicio</a> /
+      <a href="productos.html" style="color:var(--color-secundario)">Productos</a> /
+      <span>Laptop Gamer Pro X1</span>
+    </nav>
 
-<table border="1">
-<caption>Especificaciones</caption>
-<thead><tr><th>Característica</th><th>Valor</th></tr></thead>
-<tbody><tr><td>RAM</td><td>16GB</td></tr><tr><td>SSD</td><td>512GB</td></tr></tbody>
-<tfoot><tr><td colspan="2">Fin</td></tr></tfoot>
-</table>
-</main></body></html>
+    <section class="detalle-producto">
+      <div class="detalle-layout">
+
+        <!-- Galería -->
+        <div class="detalle-galeria">
+          <figure>
+            <picture>
+              <source media="(max-width:600px)" srcset="img/mobile.jpg">
+              <source media="(min-width:601px)" srcset="img/desktop.jpg">
+              <img src="img/desktop.jpg" alt="Laptop Gamer Pro X1"
+                   style="background:linear-gradient(135deg,#667eea,#764ba2)"
+                   onerror="this.onerror=null;this.style.display='block'">
+            </picture>
+            <figcaption style="padding:.75rem;text-align:center;font-size:.85rem;color:var(--color-gris)">
+              Laptop Gamer Pro X1 — Vista frontal
+            </figcaption>
+          </figure>
+
+          <!-- Media: video y audio -->
+          <div class="detalle-media">
+            <video controls poster="img/poster.jpg" aria-label="Video de demostración del producto">
+              <source src="video/demo.mp4" type="video/mp4">
+              Tu navegador no soporta el elemento de video.
+            </video>
+
+            <audio controls aria-label="Audio promocional">
+              <source src="audio/promo.mp3" type="audio/mpeg">
+              Tu navegador no soporta el elemento de audio.
+            </audio>
+          </div>
+        </div>
+
+        <!-- Información del producto -->
+        <div class="detalle-info">
+          <span class="tarjeta-categoria" style="margin-bottom:.5rem;display:block">
+            <i class="fas fa-laptop"></i> Laptops / Gaming
+          </span>
+
+          <h1>Laptop Gamer Pro X1</h1>
+
+          <div class="detalle-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span style="color:var(--color-gris);font-size:.9rem">(128 reseñas)</span>
+          </div>
+
+          <div class="detalle-precio-bloque">
+            <span class="detalle-precio-actual">$999</span>
+            <span class="detalle-precio-anterior">$1,399</span>
+            <span class="etiqueta-oferta" style="position:static;display:inline-block;margin-left:.5rem">30% OFF</span>
+          </div>
+
+          <p style="margin-bottom:1.5rem;color:var(--color-gris)">
+            La Laptop Gamer Pro X1 ofrece el máximo rendimiento para gaming y trabajo creativo.
+            Equipada con la GPU NVIDIA RTX 4070 y procesador Intel Core i9 de 13ª generación.
+          </p>
+
+          <!-- Opciones -->
+          <div class="form-grupo" style="margin-bottom:1.5rem">
+            <label style="text-transform:uppercase;font-size:.82rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem">
+              <i class="fas fa-memory"></i> Configuración
+            </label>
+            <select style="width:100%;padding:.7rem 1rem;border:2px solid var(--color-gris-claro);border-radius:var(--radio-sm);font-size:.95rem;background:var(--color-fondo);color:var(--color-texto);outline:none">
+              <option>16GB RAM + SSD 512GB — $999</option>
+              <option>32GB RAM + SSD 1TB — $1,249</option>
+              <option>64GB RAM + SSD 2TB — $1,599</option>
+            </select>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem">
+            <label style="font-size:.88rem;font-weight:600;white-space:nowrap">Cantidad:</label>
+            <input type="number" value="1" min="1" max="10"
+              style="width:80px;padding:.5rem;border:2px solid var(--color-gris-claro);border-radius:var(--radio-sm);text-align:center;font-size:1rem;background:var(--color-fondo);color:var(--color-texto);outline:none">
+          </div>
+
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem">
+            <button class="btn btn-primario" style="flex:1">
+              <i class="fas fa-cart-plus"></i> Agregar al carrito
+            </button>
+            <button class="btn btn-acento" style="flex:1">
+              <i class="fas fa-bolt"></i> Comprar ahora
+            </button>
+            <button class="btn btn-outline" aria-label="Favorito">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+
+          <!-- Beneficios -->
+          <div style="background:var(--color-fondo);border-radius:var(--radio);padding:1.25rem;display:flex;flex-direction:column;gap:.75rem;border:1px solid var(--color-gris-claro)">
+            <div style="display:flex;align-items:center;gap:.75rem;font-size:.88rem">
+              <i class="fas fa-truck" style="color:var(--color-exito)"></i>
+              <span>Envío gratis en 2–3 días hábiles</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.75rem;font-size:.88rem">
+              <i class="fas fa-shield-alt" style="color:var(--color-secundario)"></i>
+              <span>Garantía oficial de 1 año</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.75rem;font-size:.88rem">
+              <i class="fas fa-undo" style="color:var(--color-acento)"></i>
+              <span>Devolución gratuita en 30 días</span>
+            </div>
+          </div>
+        </div><!-- /detalle-info -->
+      </div><!-- /detalle-layout -->
+
+      <!-- Especificaciones técnicas — Tabla estilizada -->
+      <div style="margin-top:3rem">
+        <h2 class="section-titulo mb-2">Especificaciones Técnicas</h2>
+        <div class="tabla-contenedor">
+          <table>
+            <caption>Especificaciones completas — Laptop Gamer Pro X1</caption>
+            <thead>
+              <tr>
+                <th><i class="fas fa-cogs"></i> Característica</th>
+                <th><i class="fas fa-info-circle"></i> Valor</th>
+                <th><i class="fas fa-star"></i> Destacado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Procesador</strong></td>
+                <td>Intel Core i9-13900HX</td>
+                <td><span class="etiqueta-nuevo" style="position:static;display:inline-block">Top</span></td>
+              </tr>
+              <tr>
+                <td><strong>GPU</strong></td>
+                <td>NVIDIA RTX 4070 8GB GDDR6</td>
+                <td><span class="etiqueta-nuevo" style="position:static;display:inline-block">Top</span></td>
+              </tr>
+              <tr>
+                <td><strong>RAM</strong></td>
+                <td>16GB DDR5 5600MHz</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Almacenamiento</strong></td>
+                <td>SSD NVMe 512GB PCIe 4.0</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Pantalla</strong></td>
+                <td>15.6" FHD IPS 144Hz, 3ms</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Batería</strong></td>
+                <td>90Wh, 6h duración</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Sistema operativo</strong></td>
+                <td>Windows 11 Home</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Conectividad</strong></td>
+                <td>Wi-Fi 6E, Bluetooth 5.3, Thunderbolt 4</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Peso</strong></td>
+                <td>2.3 kg</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3"><i class="fas fa-info-circle"></i> Especificaciones sujetas a cambio sin previo aviso.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fas fa-bolt"></i><span>TechStore</span></div>
+        <p>Tu destino para tecnología de calidad.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <address>TechStore Online — Santo Domingo, RD</address>
+      <small>© 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const icon = document.querySelector('#darkToggle i');
+    icon.className = document.body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+</body>
+</html>

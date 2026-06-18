@@ -1,40 +1,343 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Contacto</title></head><body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contáctanos — TechStore Online">
+  <title>Contacto — TechStore Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
 
-<header>
-<nav>
-<ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="productos.html">Productos</a></li>
-<li><a href="producto.html">Detalle</a></li>
-<li><a href="carrito.html">Carrito</a></li>
-<li><a href="contacto.html">Contacto</a></li>
-<li><a href="acerca.html">Acerca de</a></li>
-</ul>
-</nav>
+<div class="banner-promo">
+  <i class="fas fa-headset"></i> Soporte 24/7 &nbsp;|&nbsp;
+  <i class="fas fa-clock"></i> Tiempo de respuesta: menos de 2 horas
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><i class="fas fa-bolt"></i><span>TechStore</span></a>
+      <form class="header-search" role="search">
+        <input type="search" placeholder="Buscar productos…" aria-label="Buscar">
+        <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      </form>
+      <input type="checkbox" id="menu-check" class="menu-check" aria-hidden="true">
+      <label for="menu-check" class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="nav-principal" aria-label="Menú principal">
+        <ul class="nav-lista">
+          <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="productos.html"><i class="fas fa-th-large"></i> Productos</a></li>
+          <li><a href="producto.html"><i class="fas fa-laptop"></i> Detalle</a></li>
+          <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+          <li><a href="contacto.html" class="activo"><i class="fas fa-envelope"></i> Contacto</a></li>
+          <li><a href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+        </ul>
+      </nav>
+      <div class="header-iconos">
+        <button class="icono-btn" aria-label="Cuenta"><i class="fas fa-user"></i></button>
+        <a href="carrito.html" class="icono-btn" aria-label="Carrito">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="carrito-badge">3</span>
+        </a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Modo oscuro"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </div>
 </header>
-<footer><address>TechStore Online</address><small>2026</small></footer>
+
 <main>
-<form>
-<label for="n">Nombre</label><input id="n" type="text" required placeholder="Nombre"><br>
-<label>Email</label><input type="email" required><br>
-<label>Password</label><input type="password"><br>
-<label>Tel</label><input type="tel"><br>
-<label>Número</label><input type="number" min="1" max="100"><br>
-<label>Fecha</label><input type="date"><br>
-<label>Fecha y hora</label><input type="datetime-local"><br>
-<label>Color</label><input type="color"><br>
-<label>Rango</label><input type="range"><br>
-<label>Archivo</label><input type="file" multiple><br>
-<label>URL</label><input type="url"><br>
-<input type="checkbox">Acepto<br>
-<input type="radio" name="r">Cliente<br>
-<input type="hidden" value="123">
-<textarea aria-describedby="msg"></textarea>
-<select><option>Consulta</option></select>
-<input type="text" pattern="[A-Za-z ]+" autocomplete="name">
-<input type="text" readonly value="Solo lectura">
-<input type="text" disabled value="Deshabilitado">
-<button type="submit">Enviar</button>
-<button type="reset">Limpiar</button>
-</form>
-</main></body></html>
+
+  <!-- Hero pequeño -->
+  <section style="background:linear-gradient(135deg,var(--color-primario),var(--color-secundario));padding:4rem 0 3rem;text-align:center;color:#fff">
+    <div class="container">
+      <h1 style="color:#fff;margin-bottom:.5rem"><i class="fas fa-envelope-open-text"></i> Contáctanos</h1>
+      <p style="color:rgba(255,255,255,.85);max-width:500px;margin:0 auto">
+        ¿Tienes alguna pregunta o necesitas ayuda? Estamos aquí para asistirte.
+      </p>
+    </div>
+  </section>
+
+  <section class="contacto-seccion">
+    <div class="container">
+      <div class="contacto-layout">
+
+        <!-- Información de contacto -->
+        <aside class="contacto-info">
+          <h2><i class="fas fa-headset"></i> Soporte</h2>
+          <p>Nuestro equipo está disponible para ayudarte en todo momento.</p>
+
+          <div class="contacto-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Av. Winston Churchill, Santo Domingo, República Dominicana</span>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-phone"></i>
+            <span>+1 (809) 555-0100</span>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-envelope"></i>
+            <span>soporte@techstore.com.do</span>
+          </div>
+          <div class="contacto-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>+1 (829) 555-0200</span>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-clock"></i>
+            <span>Lun–Vie: 9am – 6pm | Sáb: 9am – 1pm</span>
+          </div>
+
+          <div style="margin-top:2rem">
+            <h4 style="color:#fff;font-size:.9rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.5px">
+              Síguenos
+            </h4>
+            <div class="footer-social">
+              <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+              <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Formulario de contacto -->
+        <div class="formulario-card">
+          <h2 style="margin-bottom:1.5rem">
+            <i class="fas fa-paper-plane" style="color:var(--color-secundario)"></i>
+            Envíanos un mensaje
+          </h2>
+
+          <form id="form-contacto" novalidate>
+
+            <div class="form-fila">
+              <div class="form-grupo">
+                <label for="nombre">
+                  <i class="fas fa-user"></i> Nombre
+                </label>
+                <input type="text" id="nombre" name="nombre" required
+                       placeholder="Tu nombre completo"
+                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]+" autocomplete="name">
+              </div>
+              <div class="form-grupo">
+                <label for="apellido">
+                  <i class="fas fa-user"></i> Apellido
+                </label>
+                <input type="text" id="apellido" name="apellido" required
+                       placeholder="Tu apellido" autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-fila">
+              <div class="form-grupo">
+                <label for="email">
+                  <i class="fas fa-envelope"></i> Email
+                </label>
+                <input type="email" id="email" name="email" required
+                       placeholder="tu@email.com" autocomplete="email">
+              </div>
+              <div class="form-grupo">
+                <label for="tel">
+                  <i class="fas fa-phone"></i> Teléfono
+                </label>
+                <input type="tel" id="tel" name="tel"
+                       placeholder="+1 (809) 555-0000" autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-grupo">
+              <label for="asunto">
+                <i class="fas fa-tag"></i> Asunto
+              </label>
+              <select id="asunto" name="asunto" required>
+                <option value="" disabled selected>Selecciona un asunto…</option>
+                <option>Consulta sobre producto</option>
+                <option>Estado de mi pedido</option>
+                <option>Devolución o cambio</option>
+                <option>Soporte técnico</option>
+                <option>Facturación</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="form-grupo">
+              <label for="mensaje">
+                <i class="fas fa-comment-alt"></i> Mensaje
+              </label>
+              <textarea id="mensaje" name="mensaje" required
+                        placeholder="Describe tu consulta con el mayor detalle posible…"
+                        aria-describedby="msg-ayuda"></textarea>
+              <small id="msg-ayuda" style="color:var(--color-gris)">Mínimo 20 caracteres</small>
+            </div>
+
+            <div class="form-grupo">
+              <label for="url-ref">
+                <i class="fas fa-link"></i> URL de referencia (opcional)
+              </label>
+              <input type="url" id="url-ref" name="url_ref"
+                     placeholder="https://techstore.com.do/producto/…">
+            </div>
+
+            <div class="form-grupo">
+              <label for="num-orden">
+                <i class="fas fa-hashtag"></i> Número de orden (si aplica)
+              </label>
+              <input type="number" id="num-orden" name="num_orden"
+                     placeholder="Ej: 12345" min="1000" max="999999">
+            </div>
+
+            <div class="form-grupo">
+              <label for="fecha-compra">
+                <i class="fas fa-calendar"></i> Fecha de compra
+              </label>
+              <input type="date" id="fecha-compra" name="fecha_compra">
+            </div>
+
+            <div class="form-grupo">
+              <label for="horario">
+                <i class="fas fa-clock"></i> Horario preferido de contacto
+              </label>
+              <input type="datetime-local" id="horario" name="horario">
+            </div>
+
+            <div class="form-grupo">
+              <label><i class="fas fa-star"></i> Valoración del servicio</label>
+              <input type="range" name="valoracion" min="1" max="5" value="5">
+              <small style="color:var(--color-gris)">Desliza para calificar (1–5 estrellas)</small>
+            </div>
+
+            <div class="form-grupo">
+              <label for="color-pref">
+                <i class="fas fa-palette"></i> Color del producto de interés
+              </label>
+              <div style="display:flex;align-items:center;gap:1rem">
+                <input type="color" id="color-pref" name="color_pref" value="#1E3A8A">
+                <span style="font-size:.88rem;color:var(--color-gris)">Selecciona un color</span>
+              </div>
+            </div>
+
+            <div class="form-grupo">
+              <label for="adjunto">
+                <i class="fas fa-paperclip"></i> Adjuntar archivos
+              </label>
+              <input type="file" id="adjunto" name="adjunto" multiple accept="image/*,.pdf">
+            </div>
+
+            <!-- Tipo de cliente -->
+            <div class="form-grupo">
+              <label><i class="fas fa-users"></i> Tipo de cliente</label>
+              <div style="display:flex;gap:1.5rem;margin-top:.25rem">
+                <div class="form-check">
+                  <input type="radio" id="tipo-personal" name="tipo" value="personal" checked>
+                  <span>Personal</span>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="tipo-empresa" name="tipo" value="empresa">
+                  <span>Empresa</span>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="tipo-gobierno" name="tipo" value="gobierno">
+                  <span>Gobierno</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkbox de términos -->
+            <div class="form-grupo">
+              <div class="form-check">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <span>Acepto los <a href="#" style="color:var(--color-secundario)">términos y condiciones</a></span>
+              </div>
+            </div>
+            <div class="form-grupo">
+              <div class="form-check">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <span>Deseo recibir ofertas por email</span>
+              </div>
+            </div>
+
+            <!-- Campo de solo lectura y deshabilitado (demostración) -->
+            <div class="form-fila">
+              <div class="form-grupo">
+                <label><i class="fas fa-lock"></i> ID de sesión</label>
+                <input type="text" readonly value="USR-2026-00142" title="Campo de solo lectura">
+              </div>
+              <div class="form-grupo">
+                <label><i class="fas fa-ban"></i> Campo deshabilitado</label>
+                <input type="text" disabled value="No disponible" title="Campo deshabilitado">
+              </div>
+            </div>
+
+            <input type="hidden" name="origen" value="formulario-contacto">
+
+            <div style="display:flex;gap:1rem;flex-wrap:wrap">
+              <button type="submit" class="btn btn-primario" style="flex:1">
+                <i class="fas fa-paper-plane"></i> Enviar mensaje
+              </button>
+              <button type="reset" class="btn btn-outline">
+                <i class="fas fa-times"></i> Limpiar
+              </button>
+            </div>
+
+          </form>
+        </div><!-- /formulario-card -->
+      </div><!-- /contacto-layout -->
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fas fa-bolt"></i><span>TechStore</span></div>
+        <p>Tu destino para tecnología de calidad.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <address>TechStore Online — Santo Domingo, RD</address>
+      <small>© 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const icon = document.querySelector('#darkToggle i');
+    icon.className = document.body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  document.getElementById('form-contacto').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('¡Mensaje enviado con éxito! Te contactaremos en menos de 2 horas.');
+  });
+</script>
+</body>
+</html>

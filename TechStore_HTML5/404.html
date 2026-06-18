@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página no encontrada — TechStore Online">
+  <title>404 Página no encontrada — TechStore Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><i class="fas fa-bolt"></i><span>TechStore</span></a>
+      <input type="checkbox" id="menu-check" class="menu-check" aria-hidden="true">
+      <label for="menu-check" class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="nav-principal" aria-label="Menú principal">
+        <ul class="nav-lista">
+          <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="productos.html"><i class="fas fa-th-large"></i> Productos</a></li>
+          <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-iconos">
+        <button class="dark-toggle" id="darkToggle" aria-label="Modo oscuro"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="pagina-404">
+    <div class="container">
+      <div class="pagina-404-contenido">
+
+        <span class="error-ilustracion" role="img" aria-label="Robot perdido">🤖</span>
+
+        <div class="error-numero" role="heading" aria-level="1">404</div>
+
+        <h2>¡Página no encontrada!</h2>
+        <p>
+          Lo sentimos, la página que buscas no existe o fue movida.<br>
+          Quizás el enlace está roto o escribiste mal la dirección.
+        </p>
+
+        <!-- Búsqueda rápida -->
+        <form style="display:flex;gap:.75rem;max-width:400px;margin:0 auto 2rem;flex-wrap:wrap;justify-content:center" role="search">
+          <input type="search" placeholder="Buscar en TechStore…"
+            style="flex:1;min-width:200px;padding:.7rem 1rem;border:2px solid var(--color-gris-claro);border-radius:var(--radio);font-size:.95rem;background:var(--color-fondo);color:var(--color-texto);outline:none">
+          <button type="submit" class="btn btn-primario">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="index.html" class="btn btn-primario">
+            <i class="fas fa-home"></i> Volver al inicio
+          </a>
+          <a href="productos.html" class="btn btn-outline">
+            <i class="fas fa-th-large"></i> Ver productos
+          </a>
+          <a href="contacto.html" class="btn btn-outline">
+            <i class="fas fa-headset"></i> Soporte
+          </a>
+        </div>
+
+        <!-- Sugerencias -->
+        <div style="margin-top:3rem;background:var(--color-blanco);border-radius:var(--radio);padding:2rem;box-shadow:var(--sombra)">
+          <h3 style="margin-bottom:1rem;font-size:1.1rem">
+            <i class="fas fa-lightbulb" style="color:var(--color-acento)"></i>
+            Páginas que podrían interesarte
+          </h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.5rem">
+            <li>
+              <a href="productos.html" style="color:var(--color-secundario);display:flex;align-items:center;gap:.5rem;font-size:.9rem">
+                <i class="fas fa-laptop" style="width:18px;text-align:center"></i>
+                Laptops Gaming
+              </a>
+            </li>
+            <li>
+              <a href="productos.html" style="color:var(--color-secundario);display:flex;align-items:center;gap:.5rem;font-size:.9rem">
+                <i class="fas fa-mobile-alt" style="width:18px;text-align:center"></i>
+                Smartphones
+              </a>
+            </li>
+            <li>
+              <a href="productos.html" style="color:var(--color-secundario);display:flex;align-items:center;gap:.5rem;font-size:.9rem">
+                <i class="fas fa-gamepad" style="width:18px;text-align:center"></i>
+                Equipos Gaming
+              </a>
+            </li>
+            <li>
+              <a href="acerca.html" style="color:var(--color-secundario);display:flex;align-items:center;gap:.5rem;font-size:.9rem">
+                <i class="fas fa-info-circle" style="width:18px;text-align:center"></i>
+                Acerca de TechStore
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:2rem">
+      <address>TechStore Online — Santo Domingo, RD</address>
+      <small>© 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const icon = document.querySelector('#darkToggle i');
+    icon.className = document.body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+</body>
+</html>

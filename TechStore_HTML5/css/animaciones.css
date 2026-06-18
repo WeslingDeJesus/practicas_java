@@ -1,0 +1,227 @@
+/* =====================================================
+   TECHSTORE ONLINE — Animaciones y Transiciones
+   Práctica 2: CSS3
+   ===================================================== */
+
+/* ===== @keyframes ===== */
+
+@keyframes bannerSlide {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .5; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: translateY(20px) scale(.95); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0);     }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1);   }
+  50%       { transform: scale(1.2); }
+}
+
+@keyframes escalar {
+  0%, 100% { transform: scale(1);    }
+  50%       { transform: scale(1.08); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes bounce404 {
+  0%,  100% { transform: translateY(0);   }
+  25%        { transform: translateY(-18px) rotate(-4deg); }
+  75%        { transform: translateY(-10px) rotate(4deg);  }
+}
+
+@keyframes rotar {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes skewIn {
+  from { opacity: 0; transform: skewX(-10deg) translateX(-20px); }
+  to   { opacity: 1; transform: skewX(0)      translateX(0);     }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(.8); }
+  to   { opacity: 1; transform: scale(1);  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ===== Aplicación de animaciones ===== */
+
+/* Hero */
+.hero-badge     { animation: fadeUp   .6s ease .2s both; }
+.hero-titulo    { animation: fadeUp   .7s ease .3s both; }
+.hero-subtitulo { animation: fadeUp   .7s ease .4s both; }
+.hero-botones   { animation: fadeUp   .7s ease .5s both; }
+.hero-contenido { animation: fadeLeft .8s ease both;     }
+.hero-imagen    { animation: fadeRight .8s ease .2s both; }
+
+/* Logo */
+.logo i { animation: heartbeat 2.5s ease-in-out infinite; }
+
+/* Carrito badge */
+.carrito-badge { animation: pulse 2s ease infinite; }
+
+/* Etiqueta oferta */
+.etiqueta-oferta { animation: escalar 1.5s ease infinite; }
+
+/* Loader */
+.loader-spinner { animation: spin .8s linear infinite; }
+.loader p       { animation: pulse 1.5s ease infinite; }
+
+/* Sección cabeceras */
+.section-cabecera { animation: fadeUp .6s ease both; }
+
+/* Categorías */
+.categoria-card:nth-child(1) { animation: fadeUp .5s ease .1s both; }
+.categoria-card:nth-child(2) { animation: fadeUp .5s ease .2s both; }
+.categoria-card:nth-child(3) { animation: fadeUp .5s ease .3s both; }
+.categoria-card:nth-child(4) { animation: fadeUp .5s ease .4s both; }
+
+/* Shimmer sobre imágenes de productos */
+.tarjeta-imagen::after {
+  content:    '';
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,.25) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation:  shimmer 1.8s ease infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+.tarjeta-producto:hover .tarjeta-imagen::after { display: none; }
+
+/* Icono flotante en categoría hover */
+.categoria-card:hover .categoria-icono { animation: float 2s ease infinite; }
+
+/* Error 404 */
+.error-numero      { animation: bounce404 3s ease infinite; }
+.error-ilustracion { animation: float 3s ease infinite; }
+
+/* Dialog de promo */
+dialog { animation: zoomIn .4s ease both; }
+
+/* Botón con efecto skew al hover */
+.btn-acento:hover { transform: translateY(-2px) skewX(-2deg); }
+
+/* Animación de entrada para el formulario */
+.formulario-card   { animation: fadeRight .6s ease .1s both; }
+.contacto-info     { animation: fadeLeft  .6s ease .1s both; }
+
+/* Tabla */
+.tabla-contenedor  { animation: fadeUp .5s ease .15s both; }
+
+/* Carrito resumen */
+.carrito-resumen   { animation: fadeRight .5s ease .2s both; }
+
+/* Transition en social links ya definida en estilos.css */
+
+/* animation-duration, animation-delay, animation-iteration-count explícitos */
+.logo {
+  animation-duration:         2.5s;
+  animation-iteration-count:  1;
+}
+
+.banner-promo {
+  animation-name:             bannerSlide;
+  animation-duration:         3s;
+  animation-timing-function:  linear;
+  animation-iteration-count:  infinite;
+}
+
+.loader-spinner {
+  animation-name:            spin;
+  animation-duration:        .8s;
+  animation-timing-function: linear;
+  animation-delay:           0s;
+  animation-iteration-count: infinite;
+}
+
+/* Parallax ligero en hero (usando transform en scroll — via JS) */
+.hero-parallax { will-change: transform; }
+
+/* Keyframe para el slider CSS */
+@keyframes sliderAuto {
+  0%   { transform: translateX(0%);     }
+  25%  { transform: translateX(-100%);  }
+  50%  { transform: translateX(-200%);  }
+  75%  { transform: translateX(-300%);  }
+  100% { transform: translateX(0%);     }
+}
+
+/* CSS Slider (sin JavaScript) */
+.slider-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-lg);
+}
+.slider-track {
+  display:    flex;
+  width:      400%;
+  animation:  sliderAuto 12s ease-in-out infinite;
+}
+.slider-track:hover { animation-play-state: paused; }
+.slider-slide {
+  flex:       0 0 25%;
+  height:     350px;
+  display:    flex;
+  align-items:     center;
+  justify-content: center;
+}
+.slider-slide:nth-child(1) { background: linear-gradient(135deg,#1E3A8A,#2563EB); }
+.slider-slide:nth-child(2) { background: linear-gradient(135deg,#7C3AED,#DB2777); }
+.slider-slide:nth-child(3) { background: linear-gradient(135deg,#D97706,#DC2626); }
+.slider-slide:nth-child(4) { background: linear-gradient(135deg,#059669,#0369A1); }
+.slider-contenido {
+  text-align: center;
+  color:      #fff;
+  padding:    2rem;
+  animation:  fadeUp .6s ease both;
+}
+.slider-contenido h2 { font-size: 2.2rem; color: #fff; margin-bottom: .5rem; }
+.slider-contenido p  { color: rgba(255,255,255,.85); font-size: 1.1rem; }

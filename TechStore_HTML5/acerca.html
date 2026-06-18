@@ -1,239 +1,367 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Información sobre TechStore Online">
-    <meta name="author" content="Tu Nombre">
-    <title>Acerca de - TechStore Online</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acerca de TechStore Online — Nuestra historia y filosofía">
+  <meta name="author" content="TechStore Online">
+  <title>Acerca de — TechStore Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
-
 <body>
 
-```
-<header>
-    <h1>TechStore Online</h1>
+<div class="banner-promo">
+  <i class="fas fa-award"></i> +10 años de experiencia &nbsp;|&nbsp;
+  <i class="fas fa-users"></i> Más de 50,000 clientes satisfechos
+</div>
 
-    <nav aria-label="Menú principal">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="producto.html">Detalle</a></li>
-            <li><a href="carrito.html">Carrito</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="acerca.html">Acerca de</a></li>
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><i class="fas fa-bolt"></i><span>TechStore</span></a>
+      <form class="header-search" role="search">
+        <input type="search" placeholder="Buscar productos…" aria-label="Buscar">
+        <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      </form>
+      <input type="checkbox" id="menu-check" class="menu-check" aria-hidden="true">
+      <label for="menu-check" class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="nav-principal" aria-label="Menú principal">
+        <ul class="nav-lista">
+          <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="productos.html"><i class="fas fa-th-large"></i> Productos</a></li>
+          <li><a href="producto.html"><i class="fas fa-laptop"></i> Detalle</a></li>
+          <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+          <li><a href="acerca.html" class="activo"><i class="fas fa-info-circle"></i> Acerca de</a></li>
         </ul>
-    </nav>
-
-    <hr>
+      </nav>
+      <div class="header-iconos">
+        <button class="icono-btn" aria-label="Cuenta"><i class="fas fa-user"></i></button>
+        <a href="carrito.html" class="icono-btn" aria-label="Carrito">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="carrito-badge">3</span>
+        </a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Modo oscuro"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main>
 
-    <section>
-        <h2>Nuestra Historia</h2>
+  <!-- Hero Acerca de -->
+  <section class="acerca-hero">
+    <div class="container">
+      <h1>
+        <i class="fas fa-bolt" style="color:var(--color-acento)"></i>
+        TechStore Online
+      </h1>
+      <p class="intro-parrafo">
+        Fundada en <time datetime="2016">2016</time>, somos la tienda de tecnología
+        más confiable de la República Dominicana.
+      </p>
+    </div>
+  </section>
 
-        <article>
+  <!-- Estadísticas -->
+  <section style="background:var(--color-blanco);padding:2.5rem 0">
+    <div class="container">
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;text-align:center">
+        <div style="flex:1 1 140px">
+          <div style="font-size:2.5rem;font-weight:900;color:var(--color-secundario)">50K+</div>
+          <div style="color:var(--color-gris);font-size:.9rem">Clientes satisfechos</div>
+        </div>
+        <div style="flex:1 1 140px">
+          <div style="font-size:2.5rem;font-weight:900;color:var(--color-acento)">1,200+</div>
+          <div style="color:var(--color-gris);font-size:.9rem">Productos disponibles</div>
+        </div>
+        <div style="flex:1 1 140px">
+          <div style="font-size:2.5rem;font-weight:900;color:var(--color-exito)">10+</div>
+          <div style="color:var(--color-gris);font-size:.9rem">Años de experiencia</div>
+        </div>
+        <div style="flex:1 1 140px">
+          <div style="font-size:2.5rem;font-weight:900;color:var(--color-error)">4.8★</div>
+          <div style="color:var(--color-gris);font-size:.9rem">Valoración promedio</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <p>
-                <strong>TechStore Online</strong> nació en
-                <time datetime="2026">2026</time>
-                con el objetivo de acercar la tecnología a todos los usuarios.
-            </p>
+  <!-- Historia -->
+  <section class="acerca-seccion">
+    <div class="container">
+      <div class="section-cabecera">
+        <h2 class="section-titulo">Nuestra Historia</h2>
+        <p class="section-subtitulo">El camino que nos trajo hasta aquí</p>
+      </div>
 
-            <details>
-                <summary>Leer más sobre nuestra historia</summary>
-
-                <p>
-                    Desde nuestros inicios nos hemos especializado en la venta de
-                    laptops, smartphones, periféricos y equipos gaming.
-                </p>
-
-                <p>
-                    Nuestra misión es ofrecer productos de calidad con precios competitivos.
-                </p>
-
-            </details>
-
-        </article>
-
-    </section>
-
-    <section>
-
-        <h2>Filosofía Empresarial</h2>
-
-        <blockquote cite="https://www.techstore.com">
-            "La tecnología debe estar al alcance de todos."
-        </blockquote>
-
-        <p>
-            Esta frase representa la visión de
-            <cite>TechStore Online</cite>.
+      <article style="max-width:800px;margin:0 auto">
+        <p class="intro-parrafo">
+          <strong>TechStore Online</strong> nació en
+          <time datetime="2016">2016</time>
+          con el objetivo de acercar la tecnología a todos los usuarios dominicanos.
         </p>
 
-    </section>
-
-    <section>
-
-        <h2>Tecnologías Utilizadas</h2>
-
-        <article>
-
+        <details style="margin-top:1.5rem">
+          <summary><i class="fas fa-book-open"></i> Leer más sobre nuestra historia</summary>
+          <div style="margin-top:1rem;padding:.75rem 0;display:flex;flex-direction:column;gap:.75rem">
             <p>
-                Nuestro sitio utiliza
-                <abbr title="HyperText Markup Language">HTML</abbr>
-                para estructurar el contenido.
+              Desde nuestros inicios, nos especializamos en la venta de laptops, smartphones,
+              periféricos y equipos gaming. Lo que comenzó como una pequeña tienda en línea
+              creció hasta convertirse en el principal punto de referencia tecnológico del país.
             </p>
-
             <p>
-                El término
-                <dfn>Ecommerce</dfn>
-                hace referencia al comercio electrónico.
+              Nuestra misión es ofrecer productos de calidad con precios competitivos,
+              respaldados por un servicio al cliente excepcional y garantías reales.
             </p>
+          </div>
+        </details>
+      </article>
+    </div>
+  </section>
 
-            <p>
-                Ejemplo de código:
-            </p>
+  <!-- Filosofía -->
+  <section class="acerca-seccion">
+    <div class="container">
+      <h2 class="section-titulo texto-centro mb-4">Filosofía Empresarial</h2>
 
-        </article>
+      <blockquote>
+        <i class="fas fa-quote-left" style="color:var(--color-secundario);margin-right:.5rem"></i>
+        "La tecnología debe estar al alcance de todos."
+        <footer style="margin-top:.5rem;font-style:normal;font-size:.88rem;color:var(--color-gris)">
+          — <cite>TechStore Online</cite>
+        </footer>
+      </blockquote>
 
-    </section>
+      <div class="acerca-grid" style="margin-top:2rem">
+        <div class="acerca-card">
+          <i class="fas fa-bullseye"></i>
+          <h3>Misión</h3>
+          <p>Democratizar el acceso a la tecnología, ofreciendo los mejores productos con precios justos y servicio de excelencia.</p>
+        </div>
+        <div class="acerca-card">
+          <i class="fas fa-eye"></i>
+          <h3>Visión</h3>
+          <p>Ser la plataforma de ecommerce tecnológico líder de la región del Caribe para el año 2028.</p>
+        </div>
+        <div class="acerca-card">
+          <i class="fas fa-heart"></i>
+          <h3>Valores</h3>
+          <p>Honestidad, innovación, compromiso con el cliente y responsabilidad social empresarial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section>
+  <!-- Datos de la empresa -->
+  <section class="acerca-seccion" style="background:var(--color-blanco)">
+    <div class="container">
+      <h2 class="section-titulo texto-centro mb-4">Datos de la Empresa</h2>
 
-        <h2>Datos de la Empresa</h2>
+      <div style="max-width:700px;margin:0 auto">
+        <dl class="acerca-dl">
+          <dt><i class="fas fa-calendar"></i> Fundación</dt>
+          <dd>2016, Santo Domingo RD</dd>
 
-        <dl>
-            <dt>Fundación</dt>
-            <dd>2026</dd>
+          <dt><i class="fas fa-map-marker-alt"></i> Sede Principal</dt>
+          <dd>Av. Winston Churchill, Santo Domingo, República Dominicana</dd>
 
-            <dt>Sede Principal</dt>
-            <dd>Santo Domingo, República Dominicana</dd>
+          <dt><i class="fas fa-briefcase"></i> Especialidad</dt>
+          <dd>Productos tecnológicos, gaming y accesorios</dd>
 
-            <dt>Especialidad</dt>
-            <dd>Productos tecnológicos</dd>
+          <dt><i class="fas fa-users"></i> Equipo</dt>
+          <dd>+80 colaboradores</dd>
+
+          <dt><i class="fas fa-globe"></i> Cobertura</dt>
+          <dd>Envíos a todo el territorio nacional</dd>
+
+          <dt><abbr title="Registro Nacional del Contribuyente"><i class="fas fa-id-card"></i> RNC</abbr></dt>
+          <dd>1-23-45678-9</dd>
         </dl>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <!-- Tecnologías y laboratorio HTML5 -->
+  <section class="acerca-seccion">
+    <div class="container">
+      <h2 class="section-titulo texto-centro mb-4">Tecnologías Utilizadas</h2>
 
-    <section>
-
-        <h2>Laboratorio HTML5</h2>
-
+      <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem">
         <article>
-
-            <h3>Ruby</h3>
-
-            <ruby>
-                日本
-                <rt>nihon</rt>
-            </ruby>
-
-            <hr>
-
-            <h3>RP</h3>
-
-            <ruby>
-                東京
-                <rp>(</rp>
-                <rt>Tokyo</rt>
-                <rp>)</rp>
-            </ruby>
-
-            <hr>
-
-            <h3>BDI</h3>
-
-            <p>
-                Usuario:
-                <bdi>Wesling123</bdi>
-            </p>
-
-            <hr>
-
-            <h3>BDO</h3>
-
-            <bdo dir="rtl">
-                Texto mostrado de derecha a izquierda
-            </bdo>
-
-            <hr>
-
-            <h3>WBR</h3>
-
-            <p>
-                SuperUltraMegaLaptop<wbr>Gaming<wbr>RTX5090
-            </p>
-
-            <hr>
-
-            <h3>DATA</h3>
-
-            <data value="SKU-1001">
-                Laptop Gamer RTX
-            </data>
-
+          <p>
+            Nuestro sitio utiliza
+            <abbr title="HyperText Markup Language 5">HTML5</abbr>
+            y <abbr title="Cascading Style Sheets 3">CSS3</abbr>
+            para estructurar y estilizar el contenido.
+          </p>
+          <p>
+            El término
+            <dfn>Ecommerce</dfn>
+            hace referencia al comercio electrónico realizado por internet.
+          </p>
         </article>
 
-    </section>
+        <article style="background:var(--color-blanco);border-radius:var(--radio);padding:1.5rem;box-shadow:var(--sombra)">
+          <h3 style="margin-bottom:1rem"><i class="fas fa-flask"></i> Laboratorio HTML5</h3>
 
-    <section>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem">
 
-        <h2>Promoción Especial</h2>
+            <div>
+              <h4 style="font-size:.9rem;margin-bottom:.5rem;color:var(--color-secundario)">Ruby</h4>
+              <ruby style="font-size:1.2rem">
+                日本 <rt style="font-size:.6rem">nihon</rt>
+              </ruby>
+            </div>
 
-        <dialog open>
-            ¡Obtén un 15% de descuento en tu primera compra!
-        </dialog>
+            <div>
+              <h4 style="font-size:.9rem;margin-bottom:.5rem;color:var(--color-secundario)">Ruby con RP</h4>
+              <ruby style="font-size:1.2rem">
+                東京 <rp>(</rp><rt style="font-size:.6rem">Tokyo</rt><rp>)</rp>
+              </ruby>
+            </div>
 
-    </section>
+            <div>
+              <h4 style="font-size:.9rem;margin-bottom:.5rem;color:var(--color-secundario)">BDI</h4>
+              <p>Usuario: <bdi>Wesling123</bdi></p>
+            </div>
 
-    <section>
+            <div>
+              <h4 style="font-size:.9rem;margin-bottom:.5rem;color:var(--color-secundario)">BDO</h4>
+              <bdo dir="rtl">Texto de derecha a izquierda</bdo>
+            </div>
 
-        <h2>Estadísticas de Ventas</h2>
+            <div>
+              <h4 style="font-size:.9rem;margin-bottom:.5rem;color:var(--color-secundario)">WBR</h4>
+              <p>SuperUltraMegaLaptop<wbr>Gaming<wbr>RTX5090</p>
+            </div>
 
-        <svg width="250" height="150">
+            <div>
+              <h4 style="font-size:.9rem;margin-bottom:.5rem;color:var(--color-secundario)">DATA</h4>
+              <data value="SKU-1001">Laptop Gamer RTX</data>
+            </div>
 
-            <rect x="20" y="50" width="40" height="80"></rect>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-            <rect x="90" y="20" width="40" height="110"></rect>
+  <!-- Estadísticas con SVG -->
+  <section class="acerca-seccion" style="background:var(--color-blanco)">
+    <div class="container">
+      <h2 class="section-titulo texto-centro mb-4">
+        <i class="fas fa-chart-bar" style="color:var(--color-secundario)"></i>
+        Estadísticas de Ventas 2026
+      </h2>
 
-            <rect x="160" y="70" width="40" height="60"></rect>
-
+      <div style="display:flex;justify-content:center;overflow-x:auto;padding-bottom:.5rem">
+        <svg width="420" height="200" viewBox="0 0 420 200" role="img" aria-label="Gráfico de ventas 2026">
+          <!-- Ejes -->
+          <line x1="40" y1="170" x2="400" y2="170" stroke="var(--color-gris-claro)" stroke-width="2"/>
+          <line x1="40" y1="10"  x2="40"  y2="170" stroke="var(--color-gris-claro)" stroke-width="2"/>
+          <!-- Barras -->
+          <rect x="60"  y="90" width="50" height="80" rx="6" fill="#2563EB"/>
+          <rect x="140" y="50" width="50" height="120" rx="6" fill="#F59E0B"/>
+          <rect x="220" y="110" width="50" height="60" rx="6" fill="#10B981"/>
+          <rect x="300" y="30" width="50" height="140" rx="6" fill="#EF4444"/>
+          <!-- Etiquetas -->
+          <text x="85"  y="185" text-anchor="middle" font-size="11" fill="var(--color-gris)" font-family="Poppins,sans-serif">Q1</text>
+          <text x="165" y="185" text-anchor="middle" font-size="11" fill="var(--color-gris)" font-family="Poppins,sans-serif">Q2</text>
+          <text x="245" y="185" text-anchor="middle" font-size="11" fill="var(--color-gris)" font-family="Poppins,sans-serif">Q3</text>
+          <text x="325" y="185" text-anchor="middle" font-size="11" fill="var(--color-gris)" font-family="Poppins,sans-serif">Q4</text>
+          <!-- Valores -->
+          <text x="85"  y="85"  text-anchor="middle" font-size="10" fill="#2563EB" font-weight="bold" font-family="Poppins,sans-serif">$80k</text>
+          <text x="165" y="45"  text-anchor="middle" font-size="10" fill="#F59E0B" font-weight="bold" font-family="Poppins,sans-serif">$120k</text>
+          <text x="245" y="105" text-anchor="middle" font-size="10" fill="#10B981" font-weight="bold" font-family="Poppins,sans-serif">$60k</text>
+          <text x="325" y="25"  text-anchor="middle" font-size="10" fill="#EF4444" font-weight="bold" font-family="Poppins,sans-serif">$140k</text>
         </svg>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <!-- Diálogo de promoción -->
+  <section class="acerca-seccion">
+    <div class="container">
+      <h2 class="section-titulo texto-centro mb-4">Promoción Especial</h2>
+      <div style="text-align:center">
+        <dialog open style="position:static;margin:0 auto;display:block;animation:zoomIn .5s ease">
+          <i class="fas fa-gift" style="font-size:2rem;display:block;margin-bottom:.75rem"></i>
+          ¡Obtén un <strong>15% de descuento</strong> en tu primera compra!<br>
+          <small style="font-weight:400;font-size:.85rem">Usa el código: <strong>BIENVENIDO15</strong></small>
+          <br><br>
+          <a href="productos.html" class="btn btn-primario" style="font-size:.85rem">
+            <i class="fas fa-shopping-bag"></i> Aprovechar ahora
+          </a>
+        </dialog>
+      </div>
+    </div>
+  </section>
 
-    <section>
-
-        <h2>Plantilla HTML</h2>
-
-        <template>
-            <article>
-                <h3>Producto de ejemplo</h3>
-                <p>Descripción del producto.</p>
-            </article>
-        </template>
-
-    </section>
+  <!-- Template HTML5 (no visible, solo muestra el elemento) -->
+  <template id="tpl-producto">
+    <article class="tarjeta-producto">
+      <h3>Producto de ejemplo</h3>
+      <p>Descripción del producto.</p>
+    </article>
+  </template>
 
 </main>
 
-<footer>
-
-    <address>
-        TechStore Online<br>
-        Santo Domingo, República Dominicana
-    </address>
-
-    <small>
-        © 2026 TechStore Online. Todos los derechos reservados.
-    </small>
-
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fas fa-bolt"></i><span>TechStore</span></div>
+        <p>Tu destino para tecnología de calidad.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="acerca.html">Acerca de</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <div class="footer-contacto">
+          <div class="footer-contacto-item"><i class="fas fa-map-marker-alt"></i><span>Santo Domingo, RD</span></div>
+          <div class="footer-contacto-item"><i class="fas fa-envelope"></i><span>info@techstore.com.do</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <address>TechStore Online — Santo Domingo, República Dominicana</address>
+      <small>© 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+  </div>
 </footer>
-```
 
+<script>
+  document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const icon = document.querySelector('#darkToggle i');
+    icon.className = document.body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
 </body>
-
 </html>

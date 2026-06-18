@@ -1,24 +1,287 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Carrito</title></head><body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carrito de compras — TechStore Online">
+  <title>Carrito — TechStore Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
 
-<header>
-<nav>
-<ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="productos.html">Productos</a></li>
-<li><a href="producto.html">Detalle</a></li>
-<li><a href="carrito.html">Carrito</a></li>
-<li><a href="contacto.html">Contacto</a></li>
-<li><a href="acerca.html">Acerca de</a></li>
-</ul>
-</nav>
+<div class="banner-promo">
+  <i class="fas fa-lock"></i> Compra 100% segura &nbsp;|&nbsp;
+  <i class="fas fa-tag"></i> Código: <strong>TECH10</strong> — 10% adicional
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><i class="fas fa-bolt"></i><span>TechStore</span></a>
+      <form class="header-search" role="search">
+        <input type="search" placeholder="Buscar productos…" aria-label="Buscar">
+        <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      </form>
+      <input type="checkbox" id="menu-check" class="menu-check" aria-hidden="true">
+      <label for="menu-check" class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="nav-principal" aria-label="Menú principal">
+        <ul class="nav-lista">
+          <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="productos.html"><i class="fas fa-th-large"></i> Productos</a></li>
+          <li><a href="producto.html"><i class="fas fa-laptop"></i> Detalle</a></li>
+          <li><a href="carrito.html" class="activo"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+          <li><a href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+        </ul>
+      </nav>
+      <div class="header-iconos">
+        <button class="icono-btn" aria-label="Cuenta"><i class="fas fa-user"></i></button>
+        <a href="carrito.html" class="icono-btn" aria-label="Carrito">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="carrito-badge">3</span>
+        </a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Modo oscuro"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </div>
 </header>
-<footer><address>TechStore Online</address><small>2026</small></footer>
+
 <main>
-<table border="1">
-<tr><th>Producto</th><th>Precio</th></tr>
-<tr><td>Laptop</td><td>1000</td></tr>
-</table>
-<p>Total: <strong>$1000</strong></p>
-<meter value="75" min="0" max="100"></meter>
-<progress value="3" max="10"></progress>
-</main></body></html>
+  <div class="container">
+    <div style="padding:2rem 0 1rem">
+      <h1 style="display:flex;align-items:center;gap:.75rem">
+        <i class="fas fa-shopping-cart" style="color:var(--color-secundario)"></i>
+        Mi Carrito
+        <span style="font-size:1rem;font-weight:400;color:var(--color-gris)">(3 artículos)</span>
+      </h1>
+    </div>
+
+    <section class="carrito-seccion" style="padding-top:0">
+      <div class="carrito-layout">
+
+        <!-- Tabla del carrito -->
+        <div>
+          <div class="tabla-contenedor">
+            <table>
+              <caption>
+                <i class="fas fa-list"></i> Artículos en tu carrito
+              </caption>
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Subtotal</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:1rem">
+                      <div style="width:60px;height:60px;border-radius:var(--radio-sm);background:linear-gradient(135deg,#667eea,#764ba2);flex-shrink:0"></div>
+                      <div>
+                        <strong>Laptop Gamer Pro X1</strong><br>
+                        <small style="color:var(--color-gris)">16GB / 512GB</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>$999.00</td>
+                  <td>
+                    <input type="number" value="1" min="1" max="10"
+                      style="width:65px;padding:.35rem .5rem;border:2px solid var(--color-gris-claro);border-radius:var(--radio-sm);text-align:center;background:var(--color-fondo);color:var(--color-texto);outline:none">
+                  </td>
+                  <td><strong>$999.00</strong></td>
+                  <td>
+                    <button class="btn btn-peligro" style="padding:.35rem .6rem;font-size:.8rem" aria-label="Eliminar">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:1rem">
+                      <div style="width:60px;height:60px;border-radius:var(--radio-sm);background:linear-gradient(135deg,#f093fb,#f5576c);flex-shrink:0"></div>
+                      <div>
+                        <strong>Smartphone Galaxy Ultra 5G</strong><br>
+                        <small style="color:var(--color-gris)">12GB / 256GB</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>$599.00</td>
+                  <td>
+                    <input type="number" value="1" min="1" max="10"
+                      style="width:65px;padding:.35rem .5rem;border:2px solid var(--color-gris-claro);border-radius:var(--radio-sm);text-align:center;background:var(--color-fondo);color:var(--color-texto);outline:none">
+                  </td>
+                  <td><strong>$599.00</strong></td>
+                  <td>
+                    <button class="btn btn-peligro" style="padding:.35rem .6rem;font-size:.8rem" aria-label="Eliminar">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:1rem">
+                      <div style="width:60px;height:60px;border-radius:var(--radio-sm);background:linear-gradient(135deg,#4facfe,#00f2fe);flex-shrink:0"></div>
+                      <div>
+                        <strong>Auriculares Noise Pro 360</strong><br>
+                        <small style="color:var(--color-gris)">Negro / Bluetooth</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>$199.00</td>
+                  <td>
+                    <input type="number" value="1" min="1" max="10"
+                      style="width:65px;padding:.35rem .5rem;border:2px solid var(--color-gris-claro);border-radius:var(--radio-sm);text-align:center;background:var(--color-fondo);color:var(--color-texto);outline:none">
+                  </td>
+                  <td><strong>$199.00</strong></td>
+                  <td>
+                    <button class="btn btn-peligro" style="padding:.35rem .6rem;font-size:.8rem" aria-label="Eliminar">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3"><strong>Total de artículos: 3</strong></td>
+                  <td colspan="2"><strong>$1,797.00</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- Cupón de descuento -->
+          <div style="margin-top:1.5rem;background:var(--color-blanco);border-radius:var(--radio);padding:1.25rem;box-shadow:var(--sombra)">
+            <h4 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem">
+              <i class="fas fa-tag" style="color:var(--color-acento)"></i> Cupón de descuento
+            </h4>
+            <div style="display:flex;gap:.75rem">
+              <input type="text" placeholder="Ingresa tu código…" style="flex:1">
+              <button class="btn btn-acento"><i class="fas fa-check"></i> Aplicar</button>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="productos.html" class="btn btn-outline">
+              <i class="fas fa-arrow-left"></i> Continuar comprando
+            </a>
+            <button class="btn btn-primario">
+              <i class="fas fa-sync-alt"></i> Actualizar carrito
+            </button>
+          </div>
+        </div>
+
+        <!-- Resumen del pedido (position: sticky) -->
+        <aside class="carrito-resumen">
+          <h3><i class="fas fa-receipt"></i> Resumen del pedido</h3>
+
+          <div class="resumen-fila">
+            <span>Subtotal (3 artículos)</span>
+            <span>$1,797.00</span>
+          </div>
+          <div class="resumen-fila">
+            <span>Descuento (TECH10)</span>
+            <span style="color:var(--color-exito)">−$179.70</span>
+          </div>
+          <div class="resumen-fila">
+            <span>Envío</span>
+            <span style="color:var(--color-exito)"><i class="fas fa-check-circle"></i> Gratis</span>
+          </div>
+          <div class="resumen-fila">
+            <span>ITBIS (18%)</span>
+            <span>$291.47</span>
+          </div>
+          <div class="resumen-fila">
+            <span>Total</span>
+            <span>$1,908.77</span>
+          </div>
+
+          <button class="btn btn-primario mt-2" style="width:100%;font-size:1rem;padding:.85rem">
+            <i class="fas fa-lock"></i> Proceder al pago
+          </button>
+
+          <div class="carrito-progreso mt-2">
+            <label>
+              <i class="fas fa-truck"></i>
+              ¡Solo te faltan $3.00 para envío gratis!
+            </label>
+            <progress value="97" max="100"></progress>
+          </div>
+
+          <div style="margin-top:1rem">
+            <label style="font-size:.82rem;color:var(--color-gris);display:block;margin-bottom:.4rem">
+              Puntos acumulados:
+            </label>
+            <meter value="1797" min="0" max="5000" low="1000" high="3000" optimum="4000"></meter>
+            <small style="color:var(--color-gris);display:block;margin-top:.25rem">
+              1,797 / 5,000 puntos para nivel Gold
+            </small>
+          </div>
+
+          <!-- Métodos de pago -->
+          <div style="margin-top:1.5rem;text-align:center">
+            <p style="font-size:.8rem;color:var(--color-gris);margin-bottom:.5rem">Pagos aceptados:</p>
+            <div style="display:flex;gap:.75rem;justify-content:center;font-size:1.6rem;color:var(--color-gris)">
+              <i class="fab fa-cc-visa" title="Visa"></i>
+              <i class="fab fa-cc-mastercard" title="MasterCard"></i>
+              <i class="fab fa-cc-paypal" title="PayPal"></i>
+              <i class="fab fa-cc-amex" title="Amex"></i>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fas fa-bolt"></i><span>TechStore</span></div>
+        <p>Tu destino para tecnología de calidad.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Política de devoluciones</a></li>
+          <li><a href="#">Seguimiento de pedido</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <address>TechStore Online — Santo Domingo, RD</address>
+      <small>© 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const icon = document.querySelector('#darkToggle i');
+    icon.className = document.body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+</body>
+</html>
